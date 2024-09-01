@@ -1,50 +1,51 @@
-
-
 <template name="Prices">
-
-
   <div class="container mt-4">
-    <!-- FuelPrice Component -->
-    <ul class="nav nav-tabs mb-4">
-        <li class="nav-item">
-            <a class="nav-link active" href="#">State Prices</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">City Prices</a>
-        </li>
-    </ul>
-    <table class="table">
+    {{>NavTabs}}
+    <table class="table mt-5">
       <thead>
-          <tr>
-              <th>State</th>
-              <th>Regular</th>
-              <th>Mid Grade</th>
-              <th>Premium</th>
-              <th>Diesel</th>
-          </tr>
+        <tr>
+          <th></th>
+          <th>Regular</th>
+          <th>Mid Grade</th>
+          <th>Premium</th>
+          <th>Diesel</th>
+        </tr>
       </thead>
       <tbody>
+        {{#if isStateTab}}
           {{#each prices}}
-          <tr>
+          <span class="table-span"></span>
+          <tr class="table-body">
             <td>
-                <div class="d-flex align-items-center">
-                    <span class="state-circle bg-primary">{{code}}</span>
-                    {{state}}
-                </div>
+              <div class="d-flex align-items-center bg-white">
+                <span class="state-circle bg-primary">{{code}}</span>
+                {{state}}
+              </div>
             </td>
             <td>{{regular}}</td>
             <td>{{midGrade}}</td>
             <td>{{premium}}</td>
             <td>{{diesel}}</td>
-        </tr>
-       
-      
+          </tr>
           {{/each}}
+        {{else}}
+          {{#each cityPrices}}
+          <span class="table-span"></span>
+          <tr class="table-body ">
+            <td>
+              <div class="d-flex align-items-center bg-white">
+                <span class="state-circle bg-primary">{{code}}</span>
+                {{city}}
+              </div>
+            </td>
+            <td>{{regular}}</td>
+            <td>{{midGrade}}</td>
+            <td>{{premium}}</td>
+            <td>{{diesel}}</td>
+          </tr>
+          {{/each}}
+        {{/if}}
       </tbody>
-  </table>
-</div>
-
-
-  
-  </template>
-  
+    </table>
+  </div>
+</template>

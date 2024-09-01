@@ -1,0 +1,14 @@
+<template name="StatePrices">
+    <div class="prices">
+      {{#each price in prices}}
+        <div class="fuel-row">
+          <div class="state-code" >{{price.code}}</div>
+          <div class="state-name">{{price.state}}</div>
+          <div class="fuel-price">{{price.regular}}</div>
+          <div class="fuel-price">{{price.midGrade}}</div>
+          <div class="fuel-price">{{price.premium}}</div>
+          <div class="fuel-price">{{price.diesel}}</div>
+        </div>
+      {{/each}}
+    </div>
+  </template>
