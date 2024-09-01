@@ -1,4 +1,15 @@
 body {
-  padding: 10px;
+  padding: 150px;
   font-family: sans-serif;
+  background-color: #F3F4F7;
 }
+
+html {
+ 
+ background-color: #F3F4F7;
+}
+
+* {
+  background-color: #F3F4F7;
+}
+

@@ -1,13 +1,4 @@
-.nav-tabs .nav-link {
-  color: #6c757d;
-  border: none;
-  padding: 0.5rem 1rem;
-}
-.nav-tabs .nav-link.active {
-  font-weight: bold;
-  color: #007bff;
-  border-bottom: 2px solid #007bff;
-}
+
 .state-circle {
   width: 30px;
   height: 30px;
@@ -15,14 +6,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: #F3F4F7;
   font-weight: bold;
   margin-right: 10px;
 }
 .table th {
+  margin-top: 50px;
   color: #6c757d;
   font-weight: normal;
 }
 .table td {
   vertical-align: middle;
+}
+
+.table-body {
+ 
+  background-color: white; 
+  
+  border-radius: 10px;
+}
+
+.table-span {
+  margin:25px;
 }
