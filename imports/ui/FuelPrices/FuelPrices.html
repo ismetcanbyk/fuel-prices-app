@@ -1,0 +1,50 @@
+
+
+<template name="Prices">
+
+
+  <div class="container mt-4">
+    <!-- FuelPrice Component -->
+    <ul class="nav nav-tabs mb-4">
+        <li class="nav-item">
+            <a class="nav-link active" href="#">State Prices</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">City Prices</a>
+        </li>
+    </ul>
+    <table class="table">
+      <thead>
+          <tr>
+              <th>State</th>
+              <th>Regular</th>
+              <th>Mid Grade</th>
+              <th>Premium</th>
+              <th>Diesel</th>
+          </tr>
+      </thead>
+      <tbody>
+          {{#each prices}}
+          <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <span class="state-circle bg-primary">{{code}}</span>
+                    {{state}}
+                </div>
+            </td>
+            <td>{{regular}}</td>
+            <td>{{midGrade}}</td>
+            <td>{{premium}}</td>
+            <td>{{diesel}}</td>
+        </tr>
+       
+      
+          {{/each}}
+      </tbody>
+  </table>
+</div>
+
+
+  
+  </template>
+  

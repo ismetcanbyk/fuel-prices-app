@@ -1,25 +1,11 @@
-import { Template } from 'meteor/templating';
-import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
+import '../imports/ui/Header/Header.js';
+import '../imports/ui/Header/Header.html';
+import '../imports/ui/FuelPrices/FuelPrices.js';
+import '../imports/ui/FuelPrices/FuelPrices.html';
 
-Template.hello.onCreated(function helloOnCreated() {
 
-  this.counter = new ReactiveVar(0);
-});
-
-Template.hello.helpers({
-  counter() {
-    return Template.instance().counter.get();
-  },
-});
-
-Template.hello.events({
-  'click button'(event, instance) {
-    // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
-  },
-});
 
 
 

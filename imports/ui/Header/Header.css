@@ -1,0 +1,15 @@
+.header {
+  background-color: #f8f9fa;
+  padding: 20px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+.fuel-icon {
+  color: #dc3545;
+  margin-right: 10px;
+}
+.header-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #212529;
+  margin-bottom: 0;
+}
