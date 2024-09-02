@@ -1,3 +1,9 @@
+/* Bootstrap CSS */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+/* FontAwesome CSS */
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+
 body {
   padding: 150px;
   font-family: sans-serif;

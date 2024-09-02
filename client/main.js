@@ -1,5 +1,11 @@
+// Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css';
+// FontAwesome CSS
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Template } from 'meteor/templating';
+
 import './main.html';
 import './main.css';
 import '../imports/ui/Header/Header.js';
@@ -12,23 +18,6 @@ import '../imports/ui/NavTabs/NavTabs.html';
 
 
 
-
-// Routing
-FlowRouter.route('/', {
-    name: 'home',
-    action() {
-        BlazeLayout.render('MainLayout', { main: 'StatePrices' });
-    }
-});
-
-FlowRouter.route('/city-prices', {
-    name: 'cityPrices',
-    action() {
-        BlazeLayout.render('MainLayout', { main: 'CityPrices' });
-    }
-});
-
-
 Template.MainLayout.helpers({
     activeIfTemplateIs(template) {
         return template === FlowRouter.getRouteName() ? 'active' : '';
@@ -38,12 +27,24 @@ Template.MainLayout.helpers({
 // State Prices template helpers and events
 Template.StatePrices.onCreated(function () {
     this.prices = new ReactiveVar([]);
-    // Fetch state prices data here
+    this.loading = new ReactiveVar(true);
+
+    Meteor.call('fetchAllUsaPriceData', (error, result) => {
+        if (error) {
+            console.error('API call to first endpoint failed:', error.reason);
+        } else {
+            this.prices.set(result);
+            this.loading.set(false);
+        }
+    });
 });
 
 Template.StatePrices.helpers({
     prices() {
         return Template.instance().prices.get();
+    },
+    loading() {
+        return Template.instance().loading.get();
     }
 });
 
