@@ -6,5 +6,16 @@
     <li class="nav-item">
       <a class="nav-link {{isActiveTab 'city'}}" href="#" id="cityTab">City Prices</a>
     </li>
+    {{#if isCityTab}}
+    <li class="nav-item ml-auto">
+      <div class="form-group mb-5">
+        <select id="stateSelect" class="form-control">
+          {{#each stateOptions}}
+            <option value="{{this}}">{{this}}</option>
+          {{/each}}
+        </select>
+      </div>
+    </li>
+    {{/if}}
   </ul>
 </template>

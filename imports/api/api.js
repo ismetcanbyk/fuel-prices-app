@@ -13,9 +13,7 @@ Meteor.methods({
 
     async fetchStateUsaPriceData(param) {
         try {
-            return await apiRequest(`/stateUsaPrice?state=${param}`, {
-                method: 'GET',
-            });
+            return await apiRequest(`/stateUsaPrice?state=${param}`);
         } catch (error) {
             throw new Meteor.Error('fetch-state-USA-data-failed', `Failed to fetch second API data: ${error.message}`);
         }
