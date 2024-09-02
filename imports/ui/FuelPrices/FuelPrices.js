@@ -5,25 +5,43 @@ import './FuelPrices.css';
 
 Template.Prices.onCreated(function () {
     this.activeTab = new ReactiveVar('state');
+    this.statePrices = new ReactiveVar([]);
+    this.cityPrices = new ReactiveVar([]);
+    this.selectedState = new ReactiveVar('AK'); // Default state
+
+    // Fetch initial state prices
+    Meteor.call('fetchAllUsaPriceData', (error, result) => {
+        if (error) {
+            console.error('Error fetching state prices:', error);
+        } else {
+            this.statePrices.set(result);
+        }
+    });
+
+    // Fetch city prices when the selected state changes
+    this.autorun(() => {
+        if (this.activeTab.get() === 'city') {
+            Meteor.call('fetchStateUsaPriceData', this.selectedState.get(), (error, result) => {
+                if (error) {
+                    console.error('Error fetching city prices:', error);
+                } else {
+                    this.cityPrices.set(result);
+                }
+            });
+        }
+    });
 });
+
 
 Template.Prices.helpers({
     isStateTab() {
         return Template.instance().activeTab.get() === 'state';
     },
     prices() {
-        return [
-            { state: 'Alaska', regular: '$3.217', midGrade: '$3.422', premium: '$3.575', diesel: '$3.284', code: 'AK' },
-            { state: 'Alabama', regular: '$2.417', midGrade: '$4.122', premium: '$2.575', diesel: '$1.284', code: 'AL' },
-            { state: 'Arkansas', regular: '$1.217', midGrade: '$1.422', premium: '$4.575', diesel: '$2.284', code: 'AR' },
-        ];
+        return Template.instance().statePrices.get();
     },
     cityPrices() {
-        return [
-            { city: 'Anchorage', regular: '$3.217', midGrade: '$3.422', premium: '$3.575', diesel: '$3.284', code: 'AK' },
-            { city: 'Fairbanks', regular: '$2.417', midGrade: '$4.122', premium: '$2.575', diesel: '$1.284', code: 'AL' },
-            { city: 'Juneau', regular: '$1.217', midGrade: '$1.422', premium: '$4.575', diesel: '$2.284', code: 'JU' },
-        ];
+        return Template.instance().cityPrices.get();
     }
 });
 
@@ -35,5 +53,8 @@ Template.Prices.events({
     'click #cityTab'(event, instance) {
         event.preventDefault();
         instance.activeTab.set('city');
+    },
+    'change .state-select'(event, instance) {
+        instance.selectedState.set(event.target.value);
     }
 });
