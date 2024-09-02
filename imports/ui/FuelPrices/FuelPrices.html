@@ -1,51 +1,51 @@
-<template name="Prices">
-  <div class="container mt-4">
+<template name="StatePrices">
+  <div class="container ">
     {{>NavTabs}}
-    <table class="table mt-5">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Regular</th>
-          <th>Mid Grade</th>
-          <th>Premium</th>
-          <th>Diesel</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#if isStateTab}}
-          {{#each prices}}
-          <span class="table-span"></span>
-          <tr class="table-body">
-            <td>
-              <div class="d-flex align-items-center bg-white">
-                <span class="state-circle bg-primary">{{code}}</span>
-                {{state}}
-              </div>
-            </td>
-            <td>{{regular}}</td>
-            <td>{{midGrade}}</td>
-            <td>{{premium}}</td>
-            <td>{{diesel}}</td>
-          </tr>
-          {{/each}}
-        {{else}}
-          {{#each cityPrices}}
-          <span class="table-span"></span>
-          <tr class="table-body ">
-            <td>
-              <div class="d-flex align-items-center bg-white">
-                <span class="state-circle bg-primary">{{code}}</span>
-                {{city}}
-              </div>
-            </td>
-            <td>{{regular}}</td>
-            <td>{{midGrade}}</td>
-            <td>{{premium}}</td>
-            <td>{{diesel}}</td>
-          </tr>
-          {{/each}}
-        {{/if}}
-      </tbody>
-    </table>
+    <div class="price-table ">
+      <div class="header-row">
+        <div class="price-cell-h header-cell empty"></div>
+        <div class="price-cell-h header-cell">Gasoline</div>
+        <div class="price-cell-h header-cell">Mid Grade</div>
+        <div class="price-cell-h header-cell">Premium</div>
+        <div class="price-cell-h header-cell">Diesel</div>
+      </div>
+      {{#if isStateTab}}
+        {{#each prices}}
+          <div class="price-row">
+            <div class="price-cell state-city">
+              <span class="state-circle bg-primary">{{stateCode name}}</span>
+              {{name}}
+            </div>
+            <div class="price-cell">${{gasoline}}</div>
+            <div class="price-cell">${{midGrade}}</div>
+            <div class="price-cell">${{premium}}</div>
+            <div class="price-cell">${{diesel}}</div>
+          </div>
+        {{/each}}
+      {{else}}
+        <div class="select-city">
+          <div class="price-cell state-city">
+            <span class="state-circle state-circle">{{stateCode cityPrices.state.name}}</span>
+            {{cityPrices.state.name}}
+          </div>
+          <div class="price-cell">${{cityPrices.state.gasoline}}</div>
+          <div class="price-cell">${{cityPrices.state.midGrade}}</div>
+          <div class="price-cell">${{cityPrices.state.premium}}</div>
+          <div class="price-cell">${{cityPrices.state.diesel}}</div>
+        </div>
+        {{#each cityPrices.cities}}
+          <div class="price-row">
+            <div class="price-cell state-city">
+              <span class="state-circle bg-primary">{{stateCode name}}</span>
+              {{name}}
+            </div>
+            <div class="price-cell">${{gasoline}}</div>
+            <div class="price-cell">${{midGrade}}</div>
+            <div class="price-cell">${{premium}}</div>
+            <div class="price-cell">${{diesel}}</div>
+          </div>
+        {{/each}}
+      {{/if}}
+    </div>
   </div>
 </template>

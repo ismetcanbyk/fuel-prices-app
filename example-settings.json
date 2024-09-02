@@ -1,0 +1,8 @@
+{
+    "public": {
+        "API_BASE_URL": "https://api.collectapi.com/gasPrice"
+    },
+    "private": {
+        "API_TOKEN": "YOUR_API_TOKEN"
+    }
+}

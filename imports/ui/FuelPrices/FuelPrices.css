@@ -1,31 +1,101 @@
+.container {
+  padding: 1rem;
+}
+
+.price-table {
+  background-color: #F3F4F7;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.header-row, .price-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+}
+
+.header-row {
+  background-color: #F3F4F7;
+  padding: 10px 15px;
+  font-weight: bold;
+  color: #BEBEBE;
+}
+
+.header-cell {
+  flex: 1;
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 1rem;
+  vertical-align: middle;
+  background-color: #F3F4F7;
+}
+
+.price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px; 
+  background-color: #fff;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.price-cell {
+  flex: 1;
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 1rem;
+  vertical-align: middle;
+  background-color: #fff;
+}
+.price-cell-h {
+  flex: 1;
+  text-align: center;
+  padding: 0.1rem;
+  font-size: 1rem;
+  vertical-align: middle;
+
+}
+
+.state-city {
+  flex: 4.5;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.empty{
+  flex: 4.3;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
 .state-circle {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 35px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #F3F4F7;
+  color: #fff;
   font-weight: bold;
   margin-right: 10px;
-}
-.table th {
-  margin-top: 50px;
-  color: #6c757d;
-  font-weight: normal;
-}
-.table td {
-  vertical-align: middle;
-}
-
-.table-body {
  
-  background-color: white; 
-  
-  border-radius: 10px;
 }
 
-.table-span {
-  margin:25px;
+.state-circle {
+  background-color:#E418F6;
+}
+
+.select-city {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px; 
+  background-color: #fff;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #F09EF8;
 }

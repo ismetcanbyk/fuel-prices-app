@@ -11,3 +11,46 @@
   border-bottom: 2px solid #4518F6;
   background-color: #F3F4F7;
 }
+
+.nav-tabs {
+  display: flex;
+  align-items: center;
+  
+}
+
+.nav-item.ml-auto {
+  margin-left: auto;
+}
+
+.form-group {
+  margin-bottom: 0; 
+}
+
+.form-control {
+  width: 200px; 
+  background-color: #E7E7E7;
+}
+
+.form-control {
+  width: 200px;
+  background-color: #F3F4F7;
+  background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%236c757d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"%3E%3Cpolyline points="6 9 12 15 18 9"%3E%3C/polyline%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px 16px;
+  padding-right: 30px; 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 5px; 
+  border: 1px solid #ced4da; 
+}
+
+.form-group.mb-5 {
+  position: relative;
+}
+
+.form-control:focus {
+  border-color: #4518F6;
+  box-shadow: 0 0 5px rgba(69, 24, 246, 0.5);
+}
